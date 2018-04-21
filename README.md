@@ -1,3 +1,2 @@
-# SQAT06 - test
-Irina 
+# SQAT06 - test 
 Hello World
