@@ -5,12 +5,25 @@ const options = { desiredCapabilities: { browserName: 'chrome' } };
 
 const client = webdriverio.remote(options);
 
+const chai = require('chai')
+const should = chai.should()
+
 client
     .init()
-    .url('https://duckduckgo.com/')
-    .setValue('#search_form_input_homepage', 'WebdriverIO')
-    .click('#search_button_homepage')
-    .getTitle().then(function(title) {
-        console.log('Title is: ' + title);
+    .url('https://app.figure1.com/account/register')
+    .waitForVisible('.register-page__username-input',)
+    .setValue(".register-page__username-input", "fdfsdfsdfs")
+    .setValue(".register-page__email-input", "ffdsfddfs@ghjkgjh@yahoo.ca")
+    .setValue(".register-page__password-input", "password")
+    .setValue(".register-page__confirm-password-input", "password")
+    .addValue('.register-page__specialties-list', 'Physician') 
+    .addValue('.register-page__specialties-other-list', 'Anesthesiology')
+    .click(".register-page__terms-checkbox")
+    .click(".register-page__submit-button")
+    .getText(".invalid-field").then(function(element){
+        element.should.equal('Pleases select a valid specialty');
     })
-    .end();
+    .catch(function(err){
+        console.log(err)
+    })
+    //.end();
