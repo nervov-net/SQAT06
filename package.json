@@ -13,6 +13,6 @@
     "test": "mocha"
   },
   "devDependencies": {
-    "cucumber-html-reporter": "4.0.2"
+    "cucumber-html-reporter": "^4.0.2"
   }
 }

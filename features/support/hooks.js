@@ -7,6 +7,6 @@ After(function (testCase) {
       world.attach(screenShot, 'image/png')
       }).end();
   } else {
-    return this.browser.end();
+   // return this.browser.end();
   }
 });
